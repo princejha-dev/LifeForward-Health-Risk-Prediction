@@ -95,6 +95,15 @@ streamlit run app.py
 
 Open `http://localhost:8501` in your browser and walk through the wizard to get a prediction.
 
+## 🚀 Deployed Application
+
+The application is deployed and accessible online:
+
+- **Frontend (Streamlit)**: **[Click Here](https://lifeforward.streamlit.app/)**
+- **Note**: The backend API is not required for deployment — the model loads directly in the Streamlit app for predictions.
+
+> ⚠️ **Disclaimer**: This model is trained on synthetic data for demonstration purposes only. Predictions should NOT be used for real medical decisions. Consult a healthcare professional for accurate health assessments.
+
 ## API Reference
 
 ### `POST /predict`
