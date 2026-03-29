@@ -1,9 +1,24 @@
 import streamlit as st
-import requests
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
+from predict import load_model, predict_health
 
 #i have used github copilot to create this UI according to my customization and need
 
 st.set_page_config(page_title="NovaGen Health Predictor", page_icon="🏥", layout="centered")
+
+# ── Load Model at Startup ──────────────────────────────────────────────────
+@st.cache_resource
+def load_health_model():
+    try:
+        return load_model("models/health_model.pkl")
+    except Exception as e:
+        st.error(f"Error loading model: {e}")
+        return None
+
+model = load_health_model()
 
 # ── Custom CSS for a polished wizard look ──────────────────────────────────
 st.markdown("""
@@ -63,6 +78,8 @@ def go_to_step(n):
 
 # ── Header & progress bar ──────────────────────────────────────────────────
 st.title("🏥 NovaGen Health Prediction")
+
+st.warning("⚠️ **Disclaimer**: This model is trained on synthetic data for demonstration purposes only. Predictions should NOT be used for real medical decisions. Consult a healthcare professional.")
 
 step_labels = ["Physiological", "Lifestyle", "Medical History", "Results"]
 progress = st.session_state.step / TOTAL_STEPS
@@ -227,20 +244,20 @@ elif st.session_state.step == 4:
     # ── Predict button ─────────────────────────────────────────────────
     st.write("")
     if st.button("🔮 Predict Health Risk", type="primary", use_container_width=True):
-        with st.spinner("Analysing your health data..."):
-            try:
-                response = requests.post("http://127.0.0.1:8000/predict", json=payload)
-                if response.status_code == 200:
-                    prediction = response.json().get("prediction")
+        if model is None:
+            st.error("Model failed to load. Please check the models directory.")
+        else:
+            with st.spinner("Analysing your health data..."):
+                try:
+                    prediction_result = predict_health(model, payload)
+                    prediction = prediction_result[0]
                     st.write("")
                     if "High Risk" in prediction:
                         st.error(f"⚠️ {prediction}")
                     else:
                         st.success(f"✅ {prediction}")
-                else:
-                    st.warning(f"API Error: {response.text}")
-            except requests.exceptions.ConnectionError:
-                st.error("❌ Could not reach the backend API. Make sure `uvicorn api:app` is running.")
+                except Exception as e:
+                    st.error(f"Prediction error: {str(e)}")
 
     st.write("")
     left, _ = st.columns([1, 4])
