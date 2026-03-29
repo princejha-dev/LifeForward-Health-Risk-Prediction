@@ -7,10 +7,9 @@ from sklearn.metrics import accuracy_score, classification_report, recall_score
 
 def train_model():
     print("Loading data...")
-    # Load dataset assuming the script is run from the project root
     data_path = "dataset/novagen_dataset.csv"
     if not os.path.exists(data_path):
-        data_path = "../dataset/novagen_dataset.csv" # fallback if run from src/
+        data_path = "../dataset/novagen_dataset.csv" 
         
     df = pd.read_csv(data_path)
 

@@ -1,6 +1,8 @@
 import streamlit as st
 import requests
 
+#i have used github copilot to create this UI according to my customization and need
+
 st.set_page_config(page_title="NovaGen Health Predictor", page_icon="🏥", layout="centered")
 
 # ── Custom CSS for a polished wizard look ──────────────────────────────────

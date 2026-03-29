@@ -1,12 +1,6 @@
 # Environments
 myenv/
-env/
-venv/
-.env/
-.venv/
-ENV/
-env.bak/
-venv.bak/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -16,28 +10,8 @@ __pycache__/
 # Mac OS
 .DS_Store
 
-# IDE and Editor directories and files
-.idea/
-.vscode/
-*.swp
-*.swo
-.project
-.pydevproject
-.settings/
-
-# Models and Data (optional - ignoring large dataset and model files)
-models/health_model.pkl
-dataset/novagen_dataset.csv
-# Uncomment if you want to track dataset/models:
-# !models/health_model.pkl
-# !dataset/novagen_dataset.csv
 
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Streamlit
-.streamlit/
-# Depending on your config, you might want to track this file
-
-# Logs
-*.log
+.vscode/

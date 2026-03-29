@@ -3,9 +3,8 @@ import joblib
 import pandas as pd
 
 def load_model(model_path="models/health_model.pkl"):
-    """Loads the trained Random Forest model.""" # Make sure the train script ran first
-    if not os.path.exists(model_path):
-        # Fallback if run from the src folder
+    """Loads the trained Random Forest model.""" 
+    if not os.path.exists(model_path):     
         model_path = "../models/health_model.pkl"
         if not os.path.exists(model_path):
             raise FileNotFoundError(f"Model not found at {model_path}. Please run train.py first.")
