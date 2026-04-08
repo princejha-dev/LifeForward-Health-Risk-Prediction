@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">🏥 LifeForward Health Prediction</h1>
+  <h1 align="center">🏥 NovaGen Health Prediction</h1>
   <p align="center">
     ML-powered health risk prediction using a Random Forest classifier.
     <br />
@@ -61,8 +61,8 @@ NovaGen Health Prediction/
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/NovaGen-Health-Prediction.git
-cd NovaGen-Health-Prediction
+git clone https://github.com/princejha-dev/NovaGen-Health-Risk-Prediction.git
+cd /NovaGen-Health-Risk-Prediction
 
 # Create & activate a virtual environment
 python -m venv myenv
@@ -99,7 +99,7 @@ Open `http://localhost:8501` in your browser and walk through the wizard to get 
 
 The application is deployed and accessible online:
 
-- **Frontend (Streamlit)**: **[Click Here](https://lifeforward.streamlit.app/)**
+- **Frontend (Streamlit)**: **[Click Here](https://novagen.streamlit.app/)**
 - **Note**: The backend API is not required for deployment — the model loads directly in the Streamlit app for predictions.
 
 > ⚠️ **Disclaimer**: This model is trained on synthetic data for demonstration purposes only. Predictions should NOT be used for real medical decisions. Consult a healthcare professional for accurate health assessments.
@@ -139,7 +139,7 @@ Send a JSON body with the 22 features and receive a risk prediction.
 ## Author
 
 **[Prince Jha](https://github.com/princejha-dev)**
-🔗 [github.com/princejha-dev/LifeForward-Health-Risk-Prediction](https://github.com/princejha-dev/LifeForward-Health-Risk-Prediction)
+🔗 [github.com/princejha-dev/LifeForward-Health-Risk-Prediction](https://github.com/princejha-dev/NovaGen-Health-Risk-Prediction)
 
 ## License
 
